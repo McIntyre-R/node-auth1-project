@@ -3,7 +3,10 @@ const db = require('../data/db-config')
 
 module.exports = {
     registerUser,
-    getUsers
+    getUsers,
+    findBy
+
+    
 
 
 }
@@ -20,3 +23,7 @@ function registerUser(user) {
     .insert(user, 'id')
     .then(user => ({ user}));
 }
+
+function findBy(filter) {
+    return db("users").where(filter);
+  }
